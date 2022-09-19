@@ -10,10 +10,15 @@
     register
 {% endcomment %}
 <!-- Full Name input -->
+{% block alreadyexit %}
+    <div class="form-outline mb-4 text-danger">
+        <label class="form-label" for="">Username already Exists!</label>
+    </div>
+{% endblock alreadyexit %}
 {% block fname %}
     <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">Full Name</label>
-        <input type="text" id="form2Example1" class="form-control" name='fname' />
+        <input type="text" id="form2Example1" class="form-control" name='fname' required />
     </div>
 {% endblock fname %}
 
@@ -21,7 +26,7 @@
 {% block uname %}
     <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">new username</label>
-        <input type="text" id="form2Example1" class="form-control" name='uname'/>
+        <input type="text" id="form2Example1" class="form-control" name='uname' required/>
     </div>
 {% endblock uname %}
 
@@ -29,27 +34,28 @@
 {% block phone %}
     <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">Enter Mobile number</label>
-        <input type="number" id="form2Example1" class="form-control" name='phone' />
+        <input type="number" id="form2Example1" class="form-control" name='phone' required/>
     </div>
 {% endblock phone %}
 <!-- password input -->
 {% block pass %}
     <div class="form-outline mb-4">
-        <label class="form-label" for="form2Example1">Enter Password</label>
-        <input type="password" id="form2Example1" class="form-control" name='pass' />
+        <label class="form-label" for="pass">Enter Password</label>
+        <input type="password" id="pass" class="form-control" name='pass' required/>
     </div>
 {% endblock pass %}
+
 <!-- cpass input -->
 {% block cpass %}
     <div class="form-outline mb-4">
-        <label class="form-label" for="form2Example1">Confirm password</label>
-        <input type="password" id="form2Example1" class="form-control" name='cpass' />
+        <label class="form-label" for="cpass">Confirm password</label>
+        <input type="password" id="cpass" class="form-control" name="cpass" required/>
     </div>
 {% endblock cpass %}
 
 <!-- Submit button -->
 {% block button %}
-    <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+    <button type="button" class="btn btn-primary btn-block mb-4" onclick="myfunction()">Register</button>
 {% endblock button %}
 
 <!-- Register buttons -->

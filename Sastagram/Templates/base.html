@@ -21,11 +21,31 @@
         width: 50%;
       }
     </style>
+    <script>
+      function myfunction(){
+        console.log("script tag is working")
+      }
+      function cpassvalidation(){
+        var cpass = document.querySelector('[name="cpass"]').value
+        var pass = document.querySelector('[name="pass"]').value
+        var form = document.querySelector('[name="regform"]')
+        console.log(pass+" == "+cpass=" = "+pass==cpass)
+        if(pass == cpass){
+          form.submit()
+        } else {
+          var cpass =document.querySelector('[name="cpass"]')
+          cpass.innerHTML = "Confirm password does not match";
+        }
+      }
+    </script>
 </head>
 <body>
   <div id="reg">
-    <form action="" method=POST>
+    <form action="" method=POST name="form">
       {% csrf_token %}  
+      {% if message %}
+        {% block alreadyexit %}{% endblock alreadyexit %}
+      {% endif %}
       {% block fname %}{% endblock fname %}
 
       {% block uname %}{% endblock uname %}
@@ -44,5 +64,33 @@
       {% block changemode %}{% endblock changemode %}
       </form>
     </div>
+    <script>
+      function myfunction(){
+        let pass = document.querySelector('[name="pass"]');
+        let cpass = document.querySelector('[name="cpass"]');
+        if(pass.value == cpass.value){
+          console.log("Register")
+          let form = document.querySelector('[name="form"]')
+          form.submit();
+        }
+
+        console.log(`${pass.value}  and ${cpass.value} ${pass.value==cpass.value}`);
+        console.log("script tag is working");
+      }
+    </script>
+    {% comment %} 
+    function cpassvalidation(){
+      var cpass = document.querySelector('[name="cpass"]').value
+      var pass = document.querySelector('[name="pass"]').value
+      var form = document.querySelector('[name="regform"]')
+      console.log(pass+" == "+cpass=" = "+pass==cpass)
+      if(pass == cpass){
+        form.submit()
+      } else {
+        var cpass =document.querySelector('[name="cpass"]')
+        cpass.innerHTML = "Confirm password does not match";
+      }
+    } 
+    {% endcomment %}
 </body>
 </html>

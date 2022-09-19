@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from signup.models import User
+from django.db import IntegrityError
+
 
 # Create your views here.
 context = {
@@ -14,9 +16,21 @@ def index(request):
         num = request.POST.get('phone')
         password = request.POST.get('pass')
         usr = User(fname=fname, uname=uname, number=num, password=password)
-        usr.save()
-        print(str(usr.id))
-
+        try:
+            # code that produces error
+            usr.save()
+        except IntegrityError as e:
+            context = {
+                'isSignup': True,
+                'mode':'Registration',
+                'message': e.__cause__,
+            }
+            print("Duplicate value"+str(e.__cause__))
+            return render(request, 'signup/signup.html', context)
+    context = {
+        'isSignup': True,
+        'mode':'Registration'
+    }  
     return render(request, 'signup/signup.html', context)
 
 def user_register(request):
