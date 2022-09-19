@@ -72,6 +72,10 @@
           console.log("Register")
           let form = document.querySelector('[name="form"]')
           form.submit();
+        }else{
+          alert("password does not match")
+          cpass.value = "";
+          cpass.focus;
         }
 
         console.log(`${pass.value}  and ${cpass.value} ${pass.value==cpass.value}`);
