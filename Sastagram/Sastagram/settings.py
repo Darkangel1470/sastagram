@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.0.103',
-    'localhost'
+    'localhost',
+    'navad1470.pythonanywhere.com',
     ]
 
 
