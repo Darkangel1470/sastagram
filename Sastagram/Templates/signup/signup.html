@@ -1,0 +1,62 @@
+{% extends '../base.html' %}
+
+{% block title %}Registration{% endblock title %}
+{% comment %} 
+    full name 
+    new username 
+    mobile number
+    password 
+    confirm password
+    register
+{% endcomment %}
+<!-- Full Name input -->
+{% block fname %}
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Full Name</label>
+        <input type="text" id="form2Example1" class="form-control" name='fname' />
+    </div>
+{% endblock fname %}
+
+<!-- new username input -->
+{% block uname %}
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">new username</label>
+        <input type="text" id="form2Example1" class="form-control" name='uname'/>
+    </div>
+{% endblock uname %}
+
+<!-- phone input -->
+{% block phone %}
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Enter Mobile number</label>
+        <input type="number" id="form2Example1" class="form-control" name='phone' />
+    </div>
+{% endblock phone %}
+<!-- password input -->
+{% block pass %}
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Enter Password</label>
+        <input type="password" id="form2Example1" class="form-control" name='pass' />
+    </div>
+{% endblock pass %}
+<!-- cpass input -->
+{% block cpass %}
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Confirm password</label>
+        <input type="password" id="form2Example1" class="form-control" name='cpass' />
+    </div>
+{% endblock cpass %}
+
+<!-- Submit button -->
+{% block button %}
+    <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+{% endblock button %}
+
+<!-- Register buttons -->
+{% block changemode %}
+    <div class="text-center">
+        <p>already have an account?<a href="../">Login</a></p>
+    </div>
+{% endblock changemode %}
+
+
