@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from signup.models import User
 from django.db import IntegrityError
 
@@ -17,8 +17,10 @@ def index(request):
         password = request.POST.get('pass')
         usr = User(fname=fname, uname=uname, number=num, password=password)
         try:
-            # code that produces error
             usr.save()
+            request.session['uname'] = uname
+            print(request.session['uname']," signned up")
+            return redirect('/')
         except IntegrityError as e:
             context = {
                 'isSignup': True,
